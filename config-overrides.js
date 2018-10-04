@@ -1,4 +1,5 @@
 const { injectBabelPlugin } = require('react-app-rewired');
+const rewireReactHotLoader = require('react-app-rewire-hot-loader');
 
 module.exports = function override(config, env) {
   config = injectBabelPlugin(
@@ -9,5 +10,6 @@ module.exports = function override(config, env) {
     }],
     config
   )
+  config = rewireReactHotLoader(config, env);
   return config;
 }

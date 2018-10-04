@@ -6,8 +6,10 @@
     "antd": "^3.10.0",
     "babel-plugin-import": "^1.9.1",
     "react": "^16.5.2",
+    "react-app-rewire-hot-loader": "^1.0.3",
     "react-app-rewired": "^1.6.2",
     "react-dom": "^16.5.2",
+    "react-hot-loader": "^4.3.11",
     "react-scripts": "2.0.3"
   },
   "scripts": {
