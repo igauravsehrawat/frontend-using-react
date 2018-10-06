@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
-import UploadReport from './Components/UploadReport';
-import ViewReport from './Components/ViewReport';
+import UploadWorkLogReport from './Components/UploadWorkLogReport';
+import ViewPayrollReport from './Components/ViewPayrollReport';
 
 import './App.scss';
 
@@ -18,8 +18,8 @@ class App extends Component {
             <NavBar />
             <Content>
               <Route exact path="/" component={Home} />
-              <Route path="/upload" component={UploadReport} />
-              <Route path="/view" component={ViewReport} />
+              <Route path="/upload-worklog-report" component={UploadWorkLogReport} />
+              <Route path="/view-payroll-report" component={ViewPayrollReport} />
             </Content>
           </Layout>
         </div>

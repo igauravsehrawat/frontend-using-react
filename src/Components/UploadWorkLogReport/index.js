@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class UploadReport extends Component {
+class UploadWorkLogReport extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class UploadReport extends Component {
   }
 }
 
-export default UploadReport;
+export default UploadWorkLogReport;
