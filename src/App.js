@@ -15,7 +15,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Layout>
-            <NavBar />
+            <NavBar
+              selectedKeys={['/']}
+            />
             <Content>
               <Route exact path="/" component={Home} />
               <Route path="/upload-worklog-report" component={UploadWorkLogReport} />
