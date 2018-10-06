@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
-// import Button from 'antd/lib/button';
-import './App.scss';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Layout } from 'antd';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
-import { Layout } from 'antd';
-const { Content } = Layout;
+import UploadReport from './Components/UploadReport';
+import ViewReport from './Components/ViewReport';
 
+import './App.scss';
+
+const { Content } = Layout;
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <Layout>
-        <NavBar />
-      </Layout>
-      <Content>
-        <Home />
-      </Content>
-      </div>
+      <Router>
+        <div className="App">
+        <Layout>
+          <NavBar />
+          <Content>
+            <Home />
+          </Content>
+        </Layout>
+
+        <Route exact path="/" component={Home} />
+        <Route path="/upload" component={UploadReport} />
+        <Route path="/view" component={ViewReport} />
+        </div>
+      </Router>
     );
   }
 }

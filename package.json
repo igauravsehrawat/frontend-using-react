@@ -11,6 +11,7 @@
     "react-app-rewired": "^1.6.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.11",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.3"
   },
   "scripts": {
@@ -20,7 +21,7 @@
     "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "airbnb"
   },
   "browserslist": [
     ">0.2%",
