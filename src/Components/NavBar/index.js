@@ -9,10 +9,10 @@ class NavBar extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedKeys: ['1'],
+      selectedKeys: this.props.selectedKeys,
     }
   }
-  componentWillMount = () => {
+  componentWillMount() {
     this.setState({
       selectedKeys: this.props.selectedKeys,
     });
@@ -47,6 +47,6 @@ NavBar.propTypes = {
 }
 
 NavBar.defaultProps = {
-  selectedKeys: ['1']
+  selectedKeys: ['/']
 }
 export default NavBar;

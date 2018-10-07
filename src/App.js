@@ -10,13 +10,21 @@ import './App.scss';
 
 const { Content } = Layout;
 class App extends Component {
+  constructor() {
+    super();
+    const selectedKeys = [`/${window.location.pathname.split('/')[1]}`];
+    this.state = {
+      selectedKeys,
+    }
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
           <Layout>
             <NavBar
-              selectedKeys={['/']}
+              selectedKeys={this.state.selectedKeys}
             />
             <Content>
               <Route exact path="/" component={Home} />
