@@ -15,7 +15,7 @@ class App extends Component {
     const selectedKeys = [`/${window.location.pathname.split('/')[1]}`];
     this.state = {
       selectedKeys,
-    }
+    };
   }
 
   render() {
