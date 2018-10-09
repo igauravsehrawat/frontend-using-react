@@ -3,6 +3,7 @@ import {
   Upload, Button, Icon, message,
 } from 'antd';
 import axios from 'axios';
+import { uploadWorkLogReport } from '../../data/config/api/apiCalls'
 class UploadWorkLogReport extends Component {
   constructor() {
     super();
@@ -10,6 +11,20 @@ class UploadWorkLogReport extends Component {
       fileList: [],
       uploading: false,
     };
+  }
+
+  renderTable = (err, data) => {
+    if (err) {
+      this.setState({
+        uploading: false,
+      });
+    } else {
+      this.setState({
+        fileList: [],
+        uploading: false,
+      });
+    }
+    console.log(data);
   }
 
   handleUpload = () => {
@@ -21,22 +36,7 @@ class UploadWorkLogReport extends Component {
       uploading: true,
     });
 
-    axios.post('http://localhost:4242/workLogReports', formData)
-      .then((res) => {
-        console.log('fklj');
-        message.success(res.data.message);
-        this.setState({
-          fileList: [],
-          uploading: false,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        message.error(err.data && err.data.message);
-        this.setState({
-          uploading: false,
-        });
-      });
+    uploadWorkLogReport(formData, this.renderTable);
   };
 
   render() {
