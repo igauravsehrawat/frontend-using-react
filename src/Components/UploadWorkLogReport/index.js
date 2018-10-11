@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import {
-  Upload, Button, Icon, message,
+  Button, Icon, message, Table, Upload
 } from 'antd';
 import axios from 'axios';
 import { uploadWorkLogReport } from '../../data/config/api/apiCalls'
+import { columns } from './data';
 class UploadWorkLogReport extends Component {
   constructor() {
     super();
     this.state = {
+      reportId: null,
+      report: [],
       fileList: [],
       uploading: false,
     };
-  }
+  };
 
   renderTable = (err, data) => {
     if (err) {
@@ -22,9 +25,10 @@ class UploadWorkLogReport extends Component {
       this.setState({
         fileList: [],
         uploading: false,
+        report: data.data,
+        reportId: data.data && data.data[0] && data.data[0].reportId,
       });
     }
-    console.log(data);
   }
 
   handleUpload = () => {
@@ -59,7 +63,7 @@ class UploadWorkLogReport extends Component {
 
     return (
       <div>
-        <p>Please choose a file and click upload.</p>
+        <p>Please choose a csv file and click upload.</p>
         <Upload {...props}>
           <Button>
             <Icon type="upload" />
@@ -74,6 +78,12 @@ class UploadWorkLogReport extends Component {
         >
           {uploading ? 'Uploading' : 'Start Upload'}
         </Button>
+        {this.state.reportId &&
+          <div>
+            <p>Uploaded report with report id: {this.state.reportId} is shown below</p>
+            <Table rowKey={record => `${record.date}${record.employeeId}`} dataSource={this.state.report} columns={columns} />
+          </div>
+        }
       </div>
     );
   }
