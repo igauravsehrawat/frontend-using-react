@@ -1,7 +1,25 @@
 import makeAPICallAndProceed from './index';
 
-const formData = 'multipart/form-data';
+const formDataContentType = 'multipart/form-data';
 
-export const uploadWorkLogReport = (data, callback) => makeAPICallAndProceed(formData, '/worklog-reports', 'POST', data, callback);
+export const uploadWorkLogReport = (data, callback) => {
+  const options = {
+    contentType: formDataContentType,
+    url: '/worklog-reports',
+    method: 'POST',
+    data,
+    callback,
+  };
+  return makeAPICallAndProceed(options);
+};
 
-export const getPayrollReport = (data, callback) => makeAPICallAndProceed(null, '/payroll-reports', 'GET', data, callback);
+export const getPayrollReport = (data, callback) => {
+  const options = {
+    contentType: null,
+    url: '/payroll-reports',
+    method: 'GET',
+    data,
+    callback,
+  };
+  return makeAPICallAndProceed(options);
+};

@@ -15,7 +15,9 @@ const constructHeaders = (contentType) => {
   return headers;
 };
 
-export default function makeAPICallAndProceed(contentType = 'application/json', url, method, data, callback) {
+export default function makeAPICallAndProceed({
+  contentType, url, method, data, callback,
+}) {
   axios({
     method,
     params: method === methodTypes.get ? data : {},
