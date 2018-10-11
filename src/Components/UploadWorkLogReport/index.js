@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   Button, Icon, message, Table, Upload
 } from 'antd';
-import axios from 'axios';
 import { uploadWorkLogReport } from '../../data/config/api/apiCalls'
 import { columns } from './data';
 class UploadWorkLogReport extends Component {

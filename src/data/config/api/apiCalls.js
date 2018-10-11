@@ -23,3 +23,14 @@ export const getPayrollReport = (data, callback) => {
   };
   return makeAPICallAndProceed(options);
 };
+
+export const getAllPayrollReport = (data, callback) => {
+  const options = {
+    contentType: null,
+    url: '/payroll-reports/all',
+    method: 'GET',
+    data,
+    callback,
+  };
+  return makeAPICallAndProceed(options);
+};
