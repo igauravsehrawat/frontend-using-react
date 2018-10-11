@@ -31,7 +31,6 @@ class UploadWorkLogReport extends Component {
     const { fileList } = this.state;
     const formData = new FormData();
     formData.append('workLogReport', fileList[0]);
-
     this.setState({
       uploading: true,
     });
@@ -42,14 +41,20 @@ class UploadWorkLogReport extends Component {
   render() {
     const { uploading } = this.state;
     const props = {
-      action: '//',
+      accept: 'text/csv',
+      action: '//', // dummy
       beforeUpload: (file) => {
-        this.setState(({ fileList }) => ({
-          fileList: [...fileList, file],
-        }));
+        this.setState({
+          fileList: [file],
+        });
         return false;
       },
       fileList: this.state.fileList,
+      onRemove: (file) => {
+        this.setState({
+          fileList: [],
+        });
+      },
     };
 
     return (

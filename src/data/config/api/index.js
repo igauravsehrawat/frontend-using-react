@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from '../constants';
-import { showErrorMessage } from '../utils';
+import { showErrorMessage, showSuccessMessage } from '../utils';
 
 const methodTypes = {
   get: 'GET',
@@ -30,6 +30,7 @@ export default function makeAPICallAndProceed({
     },
   })
     .then((response) => {
+      showSuccessMessage(response.data.message);
       callback(false, response.data);
     })
     .catch((error) => {
