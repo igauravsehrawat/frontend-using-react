@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from 'antd';
+import { Table, Spin } from 'antd';
 import { getAllPayrollReport } from '../../data/config/api/apiCalls';
 import { columns } from './data';
 
@@ -26,16 +26,18 @@ class ViewPayrollReport extends Component {
   }
 
   render() {
-    const { payrollReport } = this.state;
+    const { payrollReport, loader } = this.state;
     return (
       <div>
-        <p>This is payroll report page. Payroll is generated for all the data uploaded till yet.</p>
-        {payrollReport.length > 0
-          && <Table dataSource={payrollReport} columns={columns} />
-        }
-        {payrollReport.length === 0
-          && <p>No data found</p>
-        }
+        <Spin spinning={loader} size='large'>
+          <p>This is payroll report page. Payroll is generated for all the data uploaded till yet.</p>
+          {payrollReport.length > 0
+            && <Table dataSource={payrollReport} columns={columns} />
+          }
+          {!loader && payrollReport.length === 0
+            && <p>No data found</p>
+          }
+        </Spin>
       </div>
     );
   }
