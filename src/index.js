@@ -10,7 +10,6 @@ const render = () => {
     <AppContainer>
       <App />
     </AppContainer>,
-    /* eslint-disable */
     document.getElementById('root'),
   );
 };

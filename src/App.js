@@ -19,12 +19,13 @@ class App extends Component {
   }
 
   render() {
+    const { selectedKeys } = this.state;
     return (
       <Router>
         <div className="App">
           <Layout>
             <NavBar
-              selectedKeys={this.state.selectedKeys}
+              selectedKeys={selectedKeys}
             />
             <Content>
               <Route exact path="/" component={Home} />

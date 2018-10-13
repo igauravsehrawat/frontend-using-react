@@ -8,16 +8,11 @@ const { Header } = Layout;
 class NavBar extends Component {
   constructor(props) {
     super(props);
+    const { selectedKeys } = this.props;
     this.state = {
-      selectedKeys: this.props.selectedKeys,
+      selectedKeys,
     };
     this.setSelectedKeys = this.setSelectedKeys.bind(this);
-  }
-
-  componentWillMount() {
-    this.setState({
-      selectedKeys: this.props.selectedKeys,
-    });
   }
 
   setSelectedKeys(key) {
@@ -27,12 +22,13 @@ class NavBar extends Component {
   }
 
   render() {
+    const { selectedKeys } = this.state;
     return (
       <Header>
         <Menu
           theme="dark"
           mode="horizontal"
-          selectedKeys={this.state.selectedKeys}
+          selectedKeys={selectedKeys}
           style={{ lineHeight: '64px' }}
         >
           <Menu.Item key="/" onClick={() => this.setSelectedKeys(['/'])}><Link to="/">Home</Link></Menu.Item>
@@ -45,7 +41,7 @@ class NavBar extends Component {
 }
 
 NavBar.propTypes = {
-  selectedKeys: PropTypes.array,
+  selectedKeys: PropTypes.arrayOf(PropTypes.string),
 };
 
 NavBar.defaultProps = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Button, Icon, message, Table, Upload,
+  Button, Icon, Table, Upload,
 } from 'antd';
 import { uploadWorkLogReport } from '../../data/config/api/apiCalls';
 import { columns } from './data';
@@ -46,7 +46,9 @@ class UploadWorkLogReport extends Component {
   }
 
   render() {
-    const { uploading } = this.state;
+    const {
+      fileList, reportId, report, uploading,
+    } = this.state;
     const props = {
       accept: 'text/csv',
       action: '//', // dummy
@@ -56,8 +58,8 @@ class UploadWorkLogReport extends Component {
         });
         return false;
       },
-      fileList: this.state.fileList,
-      onRemove: (file) => {
+      fileList,
+      onRemove: () => {
         this.setState({
           fileList: [],
         });
@@ -76,24 +78,24 @@ class UploadWorkLogReport extends Component {
         <Button
           type="primary"
           onClick={this.handleUpload}
-          disabled={this.state.fileList.length === 0}
+          disabled={fileList.length === 0}
           loading={uploading}
         >
           {uploading ? 'Uploading' : 'Start Upload'}
         </Button>
-        {this.state.reportId
+        {reportId
           && (
-<div>
+          <div>
             <p>
-Uploaded report with report id:
-{' '}
-{this.state.reportId}
-{' '}
-is shown below
-</p>
-            <Table rowKey={record => `${record.date}${record.employeeId}`} dataSource={this.state.report} columns={columns} />
+              Uploaded report with report id:
+              {' '}
+              {reportId}
+              {' '}
+              is shown below
+            </p>
+            <Table rowKey={record => `${record.date}${record.employeeId}`} dataSource={report} columns={columns} />
           </div>
-)
+          )
         }
       </div>
     );
