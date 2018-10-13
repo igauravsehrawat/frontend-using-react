@@ -10,13 +10,14 @@ class ViewPayrollReport extends Component {
       payrollReport: [],
       loader: true,
     };
+    this.setPayrollReport = this.setPayrollReport.bind(this);
   }
 
   componentWillMount() {
     getAllPayrollReport({}, this.setPayrollReport);
   }
 
-  setPayrollReport = (err, data) => {
+  setPayrollReport(err, data) {
     if (!err) {
       this.setState({
         payrollReport: data.data,
@@ -29,7 +30,7 @@ class ViewPayrollReport extends Component {
     const { payrollReport, loader } = this.state;
     return (
       <div>
-        <Spin spinning={loader} size='large'>
+        <Spin spinning={loader} size="large">
           <p>This is payroll report page. Payroll is generated for all the data uploaded till yet.</p>
           {payrollReport.length > 0
             && <Table dataSource={payrollReport} columns={columns} />

@@ -6,22 +6,24 @@ import PropTypes from 'prop-types';
 const { Header } = Layout;
 
 class NavBar extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       selectedKeys: this.props.selectedKeys,
-    }
+    };
+    this.setSelectedKeys = this.setSelectedKeys.bind(this);
   }
+
   componentWillMount() {
     this.setState({
       selectedKeys: this.props.selectedKeys,
     });
   }
 
-  setSelectedKeys = (key) => {
+  setSelectedKeys(key) {
     this.setState({
       selectedKeys: key,
-    })
+    });
   }
 
   render() {
@@ -44,9 +46,9 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
   selectedKeys: PropTypes.array,
-}
+};
 
 NavBar.defaultProps = {
-  selectedKeys: ['/']
-}
+  selectedKeys: ['/'],
+};
 export default NavBar;

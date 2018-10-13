@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {
-  Button, Icon, message, Table, Upload
+  Button, Icon, message, Table, Upload,
 } from 'antd';
-import { uploadWorkLogReport } from '../../data/config/api/apiCalls'
+import { uploadWorkLogReport } from '../../data/config/api/apiCalls';
 import { columns } from './data';
+
 class UploadWorkLogReport extends Component {
   constructor() {
     super();
@@ -13,9 +14,23 @@ class UploadWorkLogReport extends Component {
       fileList: [],
       uploading: false,
     };
-  };
+    this.handleUpload = this.handleUpload.bind(this);
+    this.renderTable = this.renderTable.bind(this);
+  }
 
-  renderTable = (err, data) => {
+
+  handleUpload() {
+    const { fileList } = this.state;
+    const formData = new FormData();
+    formData.append('workLogReport', fileList[0]);
+    this.setState({
+      uploading: true,
+    });
+
+    uploadWorkLogReport(formData, this.renderTable);
+  }
+
+  renderTable(err, data) {
     if (err) {
       this.setState({
         uploading: false,
@@ -29,17 +44,6 @@ class UploadWorkLogReport extends Component {
       });
     }
   }
-
-  handleUpload = () => {
-    const { fileList } = this.state;
-    const formData = new FormData();
-    formData.append('workLogReport', fileList[0]);
-    this.setState({
-      uploading: true,
-    });
-
-    uploadWorkLogReport(formData, this.renderTable);
-  };
 
   render() {
     const { uploading } = this.state;
@@ -77,11 +81,19 @@ class UploadWorkLogReport extends Component {
         >
           {uploading ? 'Uploading' : 'Start Upload'}
         </Button>
-        {this.state.reportId &&
-          <div>
-            <p>Uploaded report with report id: {this.state.reportId} is shown below</p>
+        {this.state.reportId
+          && (
+<div>
+            <p>
+Uploaded report with report id:
+{' '}
+{this.state.reportId}
+{' '}
+is shown below
+</p>
             <Table rowKey={record => `${record.date}${record.employeeId}`} dataSource={this.state.report} columns={columns} />
           </div>
+)
         }
       </div>
     );

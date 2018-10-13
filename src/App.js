@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Layout } from 'antd';
-import NavBar from './Components/NavBar';
-import Home from './Components/Home';
-import UploadWorkLogReport from './Components/UploadWorkLogReport';
-import ViewPayrollReport from './Components/ViewPayrollReport';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import UploadWorkLogReport from './components/UploadWorkLogReport';
+import ViewPayrollReport from './components/ViewPayrollReport';
 
 import './App.scss';
 
