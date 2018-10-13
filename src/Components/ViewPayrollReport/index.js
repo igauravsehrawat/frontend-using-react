@@ -33,7 +33,7 @@ class ViewPayrollReport extends Component {
         <Spin spinning={loader} size="large">
           <p>This is payroll report page. Payroll is generated for all the data uploaded till yet.</p>
           {payrollReport.length > 0
-            && <Table dataSource={payrollReport} columns={columns} />
+            && <Table rowKey={record => `${record.employeeId}${record.payPeriod}`} dataSource={payrollReport} columns={columns} />
           }
           {!loader && payrollReport.length === 0
             && <p>No data found</p>
