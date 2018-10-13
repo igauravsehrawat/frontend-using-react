@@ -39,3 +39,26 @@ body {
     color: $font-color;
   }
 }
+
+//
+.wave-full-parent-height {
+  height: 100%;
+}
+
+.wave-full-width {
+  width: 100%;
+}
+
+//
+.wave-flex {
+  display: flex;
+}
+
+.wave-flex-jc {
+  justify-content: center;
+}
+
+.wave-flex-center {
+  align-items: center;
+  justify-content: center;
+}

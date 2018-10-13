@@ -67,7 +67,7 @@ class UploadWorkLogReport extends Component {
     };
 
     return (
-      <div className="fade-in-left">
+      <div className="fade-in-left wave-full-parent-height wave-flex wave-flex-center">
         <p>Please choose a csv file and click upload.</p>
         <Upload {...props}>
           <Button>

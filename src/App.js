@@ -6,7 +6,6 @@ import Home from './components/Home';
 import UploadWorkLogReport from './components/UploadWorkLogReport';
 import ViewPayrollReport from './components/ViewPayrollReport';
 
-import './data/styles/index.scss';
 import './App.scss';
 
 const { Content } = Layout;
@@ -23,12 +22,12 @@ class App extends Component {
     const { selectedKeys } = this.state;
     return (
       <Router>
-        <div className="App fade-in-left">
-          <Layout>
+        <div className="App fade-in-left wave-full-parent-height">
+          <Layout className="wave-full-parent-height">
             <NavBar
               selectedKeys={selectedKeys}
             />
-            <Content>
+            <Content className="wave-full-parent-height">
               <Route exact path="/" component={Home} />
               <Route path="/upload-worklog-report" component={UploadWorkLogReport} />
               <Route path="/view-payroll-report" component={ViewPayrollReport} />
