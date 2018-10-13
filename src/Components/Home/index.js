@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Row, Col, Button } from 'antd';
 
 class Home extends Component {
   render() {
     return (
-      <div>
-          <p>Welcome to payroll system</p>
+      <div className="fade-in-left">
+        <p>Welcome to payroll system</p>
       </div>
-    )
+    );
   }
 }
 

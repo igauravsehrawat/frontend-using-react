@@ -1,0 +1,9 @@
+@import './keyframes.scss';
+
+.fade-in {
+  @include animation(fade-in 1s);
+}
+
+.fade-in-left {
+  @include animation(fade-in-left 1s);
+}

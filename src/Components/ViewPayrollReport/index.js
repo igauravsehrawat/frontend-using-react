@@ -29,7 +29,7 @@ class ViewPayrollReport extends Component {
   render() {
     const { payrollReport, loader } = this.state;
     return (
-      <div>
+      <div className="fade-in-left">
         <Spin spinning={loader} size="large">
           <p>This is payroll report page. Payroll is generated for all the data uploaded till yet.</p>
           {payrollReport.length > 0

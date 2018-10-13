@@ -6,6 +6,7 @@ import Home from './components/Home';
 import UploadWorkLogReport from './components/UploadWorkLogReport';
 import ViewPayrollReport from './components/ViewPayrollReport';
 
+import './data/styles/index.scss';
 import './App.scss';
 
 const { Content } = Layout;
@@ -22,7 +23,7 @@ class App extends Component {
     const { selectedKeys } = this.state;
     return (
       <Router>
-        <div className="App">
+        <div className="App fade-in-left">
           <Layout>
             <NavBar
               selectedKeys={selectedKeys}
