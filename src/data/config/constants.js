@@ -1,1 +1,2 @@
-export const BASE_URL = 'http://localhost:4242';
+/* eslint-disable */
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
