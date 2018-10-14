@@ -40,7 +40,7 @@ body {
   }
 }
 
-//
+// height and width
 .wave-full-parent-height {
   height: 100%;
 }
@@ -49,9 +49,19 @@ body {
   width: 100%;
 }
 
-//
+// positioning
 .wave-flex {
   display: flex;
+}
+
+.wave-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.wave-flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .wave-flex-jc {
@@ -61,4 +71,21 @@ body {
 .wave-flex-center {
   align-items: center;
   justify-content: center;
+}
+
+// spacing
+.wave-lr-padding-2 {
+  @include lr-padding(2px);
+}
+
+.wave-tb-padding-2 {
+  @include tb-padding(2px);
+}
+
+.wave-lr-padding-4 {
+  @include lr-padding(4px);
+}
+
+.wave-tb-padding-4 {
+  @include tb-padding(4px);
 }
