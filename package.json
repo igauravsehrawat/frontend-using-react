@@ -20,6 +20,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
+    "jsdoc:generate": "jsdoc src/ -r -d docs",
     "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
@@ -32,6 +33,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-config-airbnb": "^17.1.0"
+    "eslint-config-airbnb": "^17.1.0",
+    "jsdoc": "^3.5.5"
   }
 }
