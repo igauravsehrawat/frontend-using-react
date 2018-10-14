@@ -67,24 +67,27 @@ class UploadWorkLogReport extends Component {
     };
 
     return (
-      <div className="fade-in-left wave-full-parent-height wave-flex-column wave-flex-center">
-        <p className="wave-tb-padding-2">Please choose a csv file and click upload.</p>
-        <Upload className="wave-tb-padding-4" {...props}>
-          <Button>
-            <Icon type="upload" />
+      <div className="fade-in-left wave-full-parent-height">
+        <div className="wave-flex-column wave-flex-center">
+          <p className="wave-tb-padding-2">Please choose a csv file and click upload.</p>
+          <Upload className="wave-tb-padding-4" {...props}>
+            <Button>
+              <Icon type="upload" />
             Select File
+            </Button>
+          </Upload>
+          <Button
+            className="wave-tb-padding-4"
+            type="primary"
+            onClick={this.handleUpload}
+            disabled={fileList.length === 0}
+            loading={uploading}
+          >
+            {uploading ? 'Uploading' : 'Start Upload'}
           </Button>
-        </Upload>
-        <Button
-          className="wave-tb-padding-4"
-          type="primary"
-          onClick={this.handleUpload}
-          disabled={fileList.length === 0}
-          loading={uploading}
-        >
-          {uploading ? 'Uploading' : 'Start Upload'}
-        </Button>
-        {reportId
+        </div>
+        <div className="wave-flex-column wave-flex-center">
+          {reportId
           && (
           <div>
             <p>
@@ -98,6 +101,7 @@ class UploadWorkLogReport extends Component {
           </div>
           )
         }
+        </div>
       </div>
     );
   }

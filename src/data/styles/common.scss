@@ -89,3 +89,8 @@ body {
 .wave-tb-padding-4 {
   @include tb-padding(4px);
 }
+
+// overflow
+.wave-overflow-auto {
+  overflow: auto;
+}

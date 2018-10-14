@@ -27,7 +27,7 @@ class App extends Component {
             <NavBar
               selectedKeys={selectedKeys}
             />
-            <Content className="wave-full-parent-height">
+            <Content className="wave-full-parent-height wave-overflow-auto">
               <Route exact path="/" component={Home} />
               <Route path="/upload-worklog-report" component={UploadWorkLogReport} />
               <Route path="/view-payroll-report" component={ViewPayrollReport} />
