@@ -69,7 +69,7 @@ class UploadWorkLogReport extends Component {
     return (
       <div className="fade-in-left wave-full-parent-height">
         <div className="wave-flex-column wave-flex-center">
-          <p className="wave-tb-padding-2">Please choose a csv file and click upload.</p>
+          <h3 className="wave-tb-padding-2">Please choose a CSV file and click start upload.</h3>
           <Upload className="wave-tb-padding-4" {...props}>
             <Button>
               <Icon type="upload" />
@@ -90,13 +90,13 @@ class UploadWorkLogReport extends Component {
           {reportId
           && (
           <div>
-            <p>
+            <h3>
               Uploaded report with report id:
               {' '}
               {reportId}
               {' '}
               is shown below
-            </p>
+            </h3>
             <Table rowKey={record => `${record.date}${record.employeeId}`} dataSource={report} columns={columns} />
           </div>
           )

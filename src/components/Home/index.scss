@@ -3,6 +3,8 @@
   p {
     color: white;
     font-size: 32px;
+    transition:
+      font-size 0.7s cubic-bezier(0.36, 0.99, 0.36, 1)
   }
   p:hover {
     font-size: 42px;

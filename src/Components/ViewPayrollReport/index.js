@@ -31,7 +31,7 @@ class ViewPayrollReport extends Component {
     return (
       <div className="fade-in-left wave-full-parent-height wave-flex wave-flex-jc">
         <Spin spinning={loader} size="large">
-          <p>This is payroll report page. Payroll is generated for all the data uploaded till yet.</p>
+          <h3>This is payroll report page. Payroll is generated for all the data uploaded till yet.</h3>
           {payrollReport.length > 0
             && <Table rowKey={record => `${record.employeeId}${record.payPeriod}`} dataSource={payrollReport} columns={columns} />
           }
