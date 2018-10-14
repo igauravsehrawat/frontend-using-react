@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Layout } from 'antd';
+
+import ErrorBoundary from './components/ErrorBoundary';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import UploadWorkLogReport from './components/UploadWorkLogReport';
@@ -28,9 +30,15 @@ class App extends Component {
               selectedKeys={selectedKeys}
             />
             <Content className="wave-full-parent-height wave-overflow-auto">
-              <Route exact path="/" component={Home} />
-              <Route path="/upload-worklog-report" component={UploadWorkLogReport} />
-              <Route path="/view-payroll-report" component={ViewPayrollReport} />
+              <ErrorBoundary>
+                <Route exact path="/" component={Home} />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Route path="/upload-worklog-report" component={UploadWorkLogReport} />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Route path="/view-payroll-report" component={ViewPayrollReport} />
+              </ErrorBoundary>
             </Content>
           </Layout>
         </div>

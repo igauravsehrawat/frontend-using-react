@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './data/styles/index.scss';
 import { AppContainer } from 'react-hot-loader';
+import * as Sentry from '@sentry/browser';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+Sentry.init({ dsn: process.env.REACT_APP_SENTRY_KEY });
 
 const render = () => {
   ReactDOM.render(
