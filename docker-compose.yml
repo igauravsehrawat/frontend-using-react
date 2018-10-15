@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  payroll-frontend:
+    image: 'payroll-frontend:latest'
+    ports:
+      - '4000:3000'
+    volumes:
+      - './public:/opt/app/public'
+      - './src:/opt/app/src'
+      - '.env:/opt/app/.env'
+      - './config-overrides.js:/opt/app/config-overrides.js'
+      - './package.json:/opt/app/package.json'
