@@ -46,6 +46,8 @@ const makeAPICallAndProceed = ({
       if (error && error.response && error.response.data && error.response.data.message) {
         showErrorMessage(error.response.data.message);
         callback(true, error.response.data.message);
+      } else {
+        showErrorMessage('Internet disconnected? Something went wrong!!');
       }
     });
 };
