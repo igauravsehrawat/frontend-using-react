@@ -1,0 +1,6 @@
+version: '3.5'
+services:
+  payroll-frontend:
+    image: 'payroll-frontend:production'
+    volumes:
+      - './:/opt/app/'
