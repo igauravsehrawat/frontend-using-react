@@ -5,6 +5,7 @@ import { Layout } from 'antd';
 import ErrorBoundary from './components/ErrorBoundary';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
+import NoMatch from './components/NoMatch';
 import UploadWorkLogReport from './components/UploadWorkLogReport';
 import ViewPayrollReport from './components/ViewPayrollReport';
 
@@ -39,6 +40,7 @@ class App extends Component {
               <ErrorBoundary>
                 <Route path="/view-payroll-report" component={ViewPayrollReport} />
               </ErrorBoundary>
+              <Route component={NoMatch} />
             </Content>
           </Layout>
         </div>
