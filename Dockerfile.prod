@@ -7,5 +7,6 @@ WORKDIR /opt/app
 
 COPY package.json package.json
 RUN npm install
++COPY . .
 
 ENTRYPOINT ["npm", "run", "build"]
