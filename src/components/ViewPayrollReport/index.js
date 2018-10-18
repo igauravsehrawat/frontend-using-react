@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Spin } from 'antd';
+import ErrorBoundary from '../ErrorBoundary';
 import { getAllPayrollReport } from '../../data/config/api/apiCalls';
 import { columns } from './data';
 
@@ -29,17 +30,19 @@ class ViewPayrollReport extends Component {
   render() {
     const { payrollReport, loader } = this.state;
     return (
-      <div className="fade-in-left wave-full-parent-height wave-flex wave-flex-jc">
-        <Spin spinning={loader} size="large">
-          <h3>This is payroll report page. Payroll is generated for all the data uploaded till yet.</h3>
-          {payrollReport.length > 0
+      <ErrorBoundary>
+        <div className="fade-in-left wave-full-parent-height wave-flex wave-flex-jc">
+          <Spin spinning={loader} size="large">
+            <h3>This is payroll report page. Payroll is generated for all the data uploaded till yet.</h3>
+            {payrollReport.length > 0
             && <Table rowKey={record => `${record.employeeId}${record.payPeriod}`} dataSource={payrollReport} columns={columns} />
           }
-          {!loader && payrollReport.length === 0
+            {!loader && payrollReport.length === 0
             && <p>No data found</p>
           }
-        </Spin>
-      </div>
+          </Spin>
+        </div>
+      </ErrorBoundary>
     );
   }
 }

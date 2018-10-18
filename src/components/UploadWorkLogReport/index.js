@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Button, Icon, Table, Upload,
 } from 'antd';
+import ErrorBoundary from '../ErrorBoundary';
 import { uploadWorkLogReport } from '../../data/config/api/apiCalls';
 import { columns } from './data';
 
@@ -67,27 +68,28 @@ class UploadWorkLogReport extends Component {
     };
 
     return (
-      <div className="fade-in-left wave-full-parent-height">
-        <div className="wave-flex-column wave-flex-center">
-          <h3 className="wave-tb-padding-2">Please choose a CSV file and click start upload.</h3>
-          <Upload className="wave-tb-padding-4" {...props}>
-            <Button>
-              <Icon type="upload" />
+      <ErrorBoundary>
+        <div className="fade-in-left wave-full-parent-height">
+          <div className="wave-flex-column wave-flex-center">
+            <h3 className="wave-tb-padding-2">Please choose a CSV file and click start upload.</h3>
+            <Upload className="wave-tb-padding-4" {...props}>
+              <Button>
+                <Icon type="upload" />
             Select File
+              </Button>
+            </Upload>
+            <Button
+              className="wave-tb-padding-4"
+              type="primary"
+              onClick={this.handleUpload}
+              disabled={fileList.length === 0}
+              loading={uploading}
+            >
+              {uploading ? 'Uploading' : 'Start Upload'}
             </Button>
-          </Upload>
-          <Button
-            className="wave-tb-padding-4"
-            type="primary"
-            onClick={this.handleUpload}
-            disabled={fileList.length === 0}
-            loading={uploading}
-          >
-            {uploading ? 'Uploading' : 'Start Upload'}
-          </Button>
-        </div>
-        <div className="wave-flex-column wave-flex-center">
-          {reportId
+          </div>
+          <div className="wave-flex-column wave-flex-center">
+            {reportId
           && (
           <div>
             <h3>
@@ -101,8 +103,9 @@ class UploadWorkLogReport extends Component {
           </div>
           )
         }
+          </div>
         </div>
-      </div>
+      </ErrorBoundary>
     );
   }
 }
