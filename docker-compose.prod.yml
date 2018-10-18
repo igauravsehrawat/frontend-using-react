@@ -6,4 +6,5 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     volumes:
+      - './env:/opt/app/.env'
       - './build:/opt/app/build'
