@@ -2,6 +2,9 @@ version: '3.5'
 services:
   payroll-frontend:
     image: 'payroll-frontend:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
       - '4000:3000'
     volumes:
