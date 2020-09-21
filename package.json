@@ -35,6 +35,6 @@
   ],
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",
-    "jsdoc": "^3.5.5"
+    "jsdoc": "^3.6.6"
   }
 }
